@@ -1,0 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.todolist.controller;
+
+import com.todolist.view.LoginView;
+import com.todolist.view.TravelView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+/**
+ *
+ * @author Usuario
+ */
+public class TravelController {
+    private TravelView TravelV;
+
+    public TravelController() {
+    }
+    
+   public void init(){
+       this.TravelV = new TravelView();
+       this.TravelV.setVisible(true);
+    this.TravelV.jbVuelos(new ActionListener(){
+             // TODO add your handling code here:
+
+           public void actionPerformed(ActionEvent e) {
+               
+               //System.out.println(LoginW.getJtfEmail().getText());
+               
+           }
+   });
+      
+
+       
+       
+           
+      
+    
+}
+   
+   public void travel(){
+        String cdPartida = this.TravelV.getJcbPartida().getName();
+        String cdDestino = this.TravelV.getJcbDestino().getName();
+       
+        
+
+   }
+   
+
+}

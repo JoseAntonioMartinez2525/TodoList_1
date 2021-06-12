@@ -1,0 +1,51 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.todolist.model;
+
+/**
+ *
+ * @author Usuario
+ */
+public class Ruta {
+    public int id;
+    public String partida;
+    public String destino;
+    public float distancia;
+    public float velocidad;
+    
+    public Ruta() {
+    }
+  
+    public static String TABLE = "vuelos";
+
+    public int getId() {
+        return id;
+    }
+
+    public String getPartida() {
+        return partida;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public float getDistancia() {
+        return distancia;
+    }
+
+    public float getVelocidad() {
+        return velocidad;
+    }
+    
+    public float duracion(){
+        float h;
+       h= (getDistancia()/getVelocidad())*(1/24);
+       return h;
+       
+    }
+    
+}

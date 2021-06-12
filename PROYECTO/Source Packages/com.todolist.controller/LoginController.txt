@@ -1,0 +1,56 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.todolist.controller;
+
+import com.todolist.dao.UsuarioDAO;
+import com.todolist.model.Usuario;
+import com.todolist.view.LoginView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Jose A Martinez
+ */
+public class LoginController {
+    private LoginView LoginW;
+
+    public LoginController() {
+    }
+    
+   public void init(){
+       this.LoginW = new LoginView();
+       this.LoginW.setVisible(true);
+       
+       this.LoginW.jbtnLoginClick(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               
+               //System.out.println(LoginW.getJtfEmail().getText());
+               Login();
+           }
+           
+       });
+   }   
+       public void Login (){
+           String email = this.LoginW.getJtfEmail().getText();
+           String password = String.valueOf(this.LoginW.getJpwfPassword().getPassword());
+           UsuarioDAO usuarioDao = new UsuarioDAO();
+           Usuario usuario = usuarioDao.buscarEmailPassword(email, password);
+           if (usuario == null) {
+             JOptionPane.showMessageDialog(LoginW, "Usuario o contraseña incorrecto", "Error", JOptionPane.WARNING_MESSAGE);
+           }else{
+               JOptionPane.showMessageDialog(LoginW, "Bienvenido(a):  "+ usuario.getNombre(), "sucess", JOptionPane.INFORMATION_MESSAGE);
+              
+           }
+       }
+       
+   }
+    
+   
+    
+
